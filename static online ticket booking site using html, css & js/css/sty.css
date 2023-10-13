@@ -1,0 +1,37 @@
+h1{
+		border:2px solid black;
+		background-color:Tomato;
+		color:blue;
+	}
+h2{
+		border:2px solid black;
+		background-color:blue;
+		color:Fuchsia;
+	}
+table{
+		font-size:150%;
+		padding: 20px;
+		border:8px solid Yellow;
+	}
+body{
+		background-color:Cornsilk;
+	}
+#submitBtn{
+	font-size:100%;
+	text-align:center;
+	margin-left:80px;
+	}
+#resetBtn{
+		font-size:100%;
+		text-align:center;
+		margin-left:10px;
+	}
+#signup{
+		font-size:200%;
+		text-align:center;
+		margin-left:10px;
+	}
+input{
+		font-size:80%;
+		font-family:'Times New Roman';
+	}

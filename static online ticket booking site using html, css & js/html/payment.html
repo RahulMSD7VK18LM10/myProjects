@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="Stylesheet" href="../css/ab.css"></link>
+		<script src="../js/validate3.js" type="text/javaScript"></script>
+	</head>
+	<body>
+		<div align="Center">
+        <h1>Payment Details</h1>
+        <form method="POST" action="../html/otp.html" onsubmit="validatePayment(event);">
+            <table>
+            
+            <tr>
+            <td><label for="acc">Account No.</label> </td>
+            <td><input type="password" id="acc"/></td>
+			<td><span id="anoErr"></span></td>
+            </tr>
+            
+            <tr>
+            <td>
+            <label for="IFSC">IFSC code</label> </td>
+            <td><input type="text" id="IFSC"/></td>
+			<td><span id="ifscodeErr"></span></td>
+            </tr>
+			
+			<tr>
+            <td>
+            <label for="Name">Name of card holder</label> </td>
+            <td><input type="text" id="Name"/></td>
+            </tr>
+            
+            <tr>
+            <td><input type="submit" value="Proceed" id="submitBtn"/></td>
+            <td><input type="reset" value="Reset" id="resetBtn"/></td>
+            </tr>
+            </table>
+        </form>
+        </div>
+	</body>
+</html>

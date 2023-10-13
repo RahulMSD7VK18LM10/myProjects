@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="Stylesheet" href="../css/ab.css"></link>
+		<script src="../js/validate4.js" type="text/javaScript"></script>
+	</head>
+	<body>
+		<div align="Center">
+        <h1>OTP Verification</h1>
+		<h2>The OTP has been sent to registered number</h2>
+        <form method="post" action="../html/comp.html" onsubmit="validateOtp(event);">
+            <table>
+            
+            <tr>
+            <td><label for="OTP">OTP</label> </td>
+            <td><input type="number" id="OTP"/></td>
+			<td><span id="otpErr"></span></td>
+            </tr>
+            			
+            <tr>
+            <td><input type="submit" value="Verify" id="submitBtn"/></td>
+            <td><input type="submit" value="ResendOTP" id="ResendtBtn"/></td>
+            </tr>
+            </table>
+        </form>
+        </div>
+	</body>
+</html>

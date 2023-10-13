@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<link rel="icon" type="image/x-icon" href="F:\WebTechnologies\online ticket booking\images\css.jpg">
+		<link rel="Stylesheet" href="../css/sty.css"></link>
+		<script src="../js/validate.js" type="text/javaScript"></script>
+        <title> Online Ticket Booking</title>
+    </head>
+    <body>
+        <div align="Center">
+		<h1>Online Ticket Booking</h1>
+        <h2> Login or SignUp</h2>
+        <form method="Post" action="../html/prac.html" onsubmit="validateForm(event);">
+            <table>
+            
+            <tr>
+            <td><label for="userName">UserName</label> </td>
+            <td><input type="text" id="userName" placeholder="userName"/></td>
+			<td><span id="userNameErr"></span></td>
+            </tr>
+            
+            <tr>
+            <td>
+            <label for="password">Password</label> </td>
+            <td><input type="password" id="password" placeholder="password"/></td>
+			<td><span id="passwordErr""></span></td>
+            </tr>
+            
+            <tr>
+            <td><input type="submit" value="Login" id="submitBtn"/></td>
+            <td><input type="reset" value="Reset" id="resetBtn"/></td>
+            </tr>
+            </table>
+			<div align="center">
+                <strong>or</strong><br>
+                <input type="button" value="Sign Up" id="signup" />
+            </div>
+			
+        </form>
+        </div>
+    </body>
+    
+</html>
+
+<!-- 901 lines of codes -->

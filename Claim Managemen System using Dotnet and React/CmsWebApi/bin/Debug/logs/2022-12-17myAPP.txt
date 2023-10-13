@@ -1,0 +1,2 @@
+2022-12-17 14:57:38.3344|INFO|myAPP|Enter the user credentials
+2022-12-17 14:57:38.8258|INFO|myAPP|Login Success

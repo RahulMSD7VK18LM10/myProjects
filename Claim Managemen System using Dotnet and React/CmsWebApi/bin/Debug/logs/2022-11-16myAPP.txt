@@ -1,0 +1,4 @@
+2022-11-16 11:20:54.1687|INFO|myAPP|Enter the user credentials
+2022-11-16 11:20:54.2641|INFO|myAPP|Login Failed
+2022-11-16 11:20:57.2789|INFO|myAPP|Enter the user credentials
+2022-11-16 11:20:57.2860|INFO|myAPP|Login Failed

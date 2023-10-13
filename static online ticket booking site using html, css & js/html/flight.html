@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="Stylesheet" href="../css/ab.css"></link>
+		<script src="../js/validate2.js" type="text/javaScript"></script>
+	</head>
+	<body>
+		<div align="Center">
+        <h1>Flight Ticket Booking</h1>
+        <form method="POST" action="../html/payment.html" onsubmit="validateData(event);">
+            <table>
+            
+            <tr>
+            <td><label for="Name">Name</label> </td>
+            <td><input type="text" id="Name"/></td>
+			<td><span id="nameErr"></span></td>
+            </tr>
+            
+            <tr>
+            <td>
+            <label for="Age">Age</label> </td>
+            <td><input type="number" id="Age"/></td>
+			<td><span id="ageErr"></span></td>
+            </tr>
+			
+			<tr>
+            <td>
+            <label for="Contact">Contact No.</label> </td>
+            <td><input type="number" id="number"/></td>
+			<td><span id="contactErr"></span></td>
+            </tr>
+			
+			<tr>
+            <td>
+            <label for="Gender">Gender</label> </td>
+            <td><input type="radio" id="Male"/><label for="Male">Male</label>
+			<input type="radio" id="Female"/><label for="Female">Female</label>
+			<input type="radio" id="Other"/><label for="Other">Others</label></td>
+            </tr>
+			
+			<tr>
+            <td>
+            <label for="Date">Date of Journey</label> </td>
+            <td><input type="date" id="Date"/></td>
+			<td><span id="dojErr"></span></td>
+            </tr>
+            
+            <tr>
+            <td><label for="Source">Source</label> </td>
+            <td><input type="text" id="Source"/></td>
+			<td><span id="sourceErr"></span></td>
+            </tr>
+			
+			<tr>
+            <td><label for="Destination">Destination</label> </td>
+            <td><input type="text" id="Destination"/></td>
+			<td><span id="destinationErr"></span></td>
+            </tr>
+			
+			<tr>
+			<td><label for="Class">Class Type:</label></td>
+			<td><select name="Class" id="Clas">
+			  <option value="None">None</option>
+			  <option value="EXC">Executive Class</option>
+			  <option value="BSC">Business Class</option>
+			  <option value="FSC">First Class</option>
+			</select></td>
+			</tr>
+			
+			<tr>
+            <td><label for="Number">Number of Seats</label> </td>
+            <td><input type="text" id="Number"/></td>
+			<td><span id="nosErr"></span></td>
+            </tr>
+			
+            <tr>
+            <td><input type="submit" value="Proceed" id="submitBtn"/></td>
+            <td><input type="reset" value="Reset" id="resetBtn"/></td>
+            </tr>
+            </table>
+        </form>
+		<br/>
+		<img src="F:\WebTechnologies\online ticket booking\images\flight2.jpg" alt="Airplane" width="625" height="625"></img>
+        </div>
+	</body>
+</html>

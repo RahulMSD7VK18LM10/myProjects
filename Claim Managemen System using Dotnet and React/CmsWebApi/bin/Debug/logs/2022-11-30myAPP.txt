@@ -1,0 +1,32 @@
+2022-11-30 14:45:14.2826|INFO|myAPP|Enter the user credentials
+2022-11-30 14:45:14.5371|INFO|myAPP|Login Success
+2022-11-30 14:59:41.8681|INFO|myAPP|Enter the user credentials
+2022-11-30 14:59:41.9695|INFO|myAPP|Login Failed
+2022-11-30 14:59:54.4616|INFO|myAPP|Enter the user credentials
+2022-11-30 14:59:54.4682|INFO|myAPP|Login Failed
+2022-11-30 14:59:59.6698|INFO|myAPP|Enter the user credentials
+2022-11-30 14:59:59.6698|INFO|myAPP|Login Failed
+2022-11-30 15:00:11.7266|INFO|myAPP|Enter the user credentials
+2022-11-30 15:00:11.7319|INFO|myAPP|Login Failed
+2022-11-30 15:00:48.3928|INFO|myAPP|Enter the user credentials
+2022-11-30 15:00:48.4009|INFO|myAPP|Login Failed
+2022-11-30 15:01:15.0228|INFO|myAPP|Enter the user credentials
+2022-11-30 15:01:15.0299|INFO|myAPP|Login Success
+2022-11-30 15:16:43.5179|INFO|myAPP|Enter the user credentials
+2022-11-30 15:16:43.9837|INFO|myAPP|Login Success
+2022-11-30 21:54:15.2821|INFO|myAPP|Enter the user credentials
+2022-11-30 21:54:19.7870|INFO|myAPP|Login Failed
+2022-11-30 21:54:22.8025|INFO|myAPP|Enter the user credentials
+2022-11-30 21:54:22.8817|INFO|myAPP|Login Failed
+2022-11-30 21:54:32.5121|INFO|myAPP|Enter the user credentials
+2022-11-30 21:54:32.6648|INFO|myAPP|Login Success
+2022-11-30 22:00:16.4702|INFO|myAPP|Enter the user credentials
+2022-11-30 22:00:20.4107|INFO|myAPP|Login Failed
+2022-11-30 22:02:24.8441|INFO|myAPP|Enter the user credentials
+2022-11-30 22:02:28.7778|INFO|myAPP|Login Failed
+2022-11-30 22:03:47.9306|INFO|myAPP|Enter the user credentials
+2022-11-30 22:03:48.0126|INFO|myAPP|Login Failed
+2022-11-30 22:05:08.0732|INFO|myAPP|Enter the user credentials
+2022-11-30 22:05:08.0732|INFO|myAPP|Login Failed
+2022-11-30 22:17:30.9291|INFO|myAPP|Enter the user credentials
+2022-11-30 22:17:35.0207|INFO|myAPP|Login Failed

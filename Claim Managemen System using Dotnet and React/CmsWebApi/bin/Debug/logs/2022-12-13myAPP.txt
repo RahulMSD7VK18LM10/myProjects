@@ -1,0 +1,12 @@
+2022-12-13 15:16:34.1547|INFO|myAPP|Enter the user credentials
+2022-12-13 15:16:37.5774|INFO|myAPP|Login Success
+2022-12-13 15:19:00.4985|INFO|myAPP|Enter the user credentials
+2022-12-13 15:19:03.0219|INFO|myAPP|Login Failed
+2022-12-13 15:20:23.9557|INFO|myAPP|Enter the user credentials
+2022-12-13 15:20:26.6554|INFO|myAPP|Login Failed
+2022-12-13 15:20:35.8892|INFO|myAPP|Enter the user credentials
+2022-12-13 15:20:36.0349|INFO|myAPP|Login Success
+2022-12-13 15:23:48.4096|INFO|myAPP|Enter the user credentials
+2022-12-13 15:23:48.4224|INFO|myAPP|Login Failed
+2022-12-13 15:23:53.2293|INFO|myAPP|Enter the user credentials
+2022-12-13 15:23:53.2293|INFO|myAPP|Login Success

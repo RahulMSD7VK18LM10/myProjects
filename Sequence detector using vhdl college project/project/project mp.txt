@@ -1,0 +1,74 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+--Sequence detector for detecting the sequence "01010".
+entity seq is
+port(   clk : in std_logic;
+        reset : in std_logic;
+        input : in std_logic;    --input bit sequence   
+        output : out std_logic  --'1' indicates the pattern "01010" is detected in the sequence.
+        );
+end seq;
+
+architecture Behavioral of seq is
+
+type state_type is (s0,s1,s2,s3,s4);  --Defines the type for states in the state machine. 
+signal state : state_type := s0;  --Declare the signal with the corresponding state type.
+
+begin
+
+process(clk, reset)
+ begin
+    if( reset = '1' ) then     --resets state and output signal when reset is asserted.
+        output <= '0';
+        state <= s0;
+    elsif ( clk' event and clk='1' ) then   --at rising edge of clock
+        case state is
+            when s0 =>   --when the current state is s0
+                output <= '0';
+                if ( input = '0' ) then
+                    state <= s1;
+                else   
+                    state <= s0;
+                end if;
+            when s1 =>   --when the current state is s1
+                if ( input = '1' ) then
+                    state <= s2;
+                output<='0';
+                else   
+                    state <= s1;
+                output<='0';
+                end if;
+            when s2 =>   --when the current state is s2
+                if ( input = '0' ) then
+                    state <= s3;
+                output<='0';
+                else   
+                    state <= s1;
+                output<='0';
+                end if;
+            when s3 =>   --when the current state is s3
+                if ( input = '1' ) then
+                    state <= s4;
+                    output<='0';
+                else   
+                    state <= s1;
+                    output<='0';   
+                end if;
+            when s4 =>   --when the current state is s4
+                if ( input = '0' ) then
+                    state <= s1;
+                    output <= '1';
+                else   
+                    state <= s0;
+                    output <= '0';
+                end if;
+            when others =>
+                NULL;
+        end case;
+    end if;
+end process;   
+
+end Behavioral;
+
+
