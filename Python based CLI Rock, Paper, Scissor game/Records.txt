@@ -1,0 +1,10 @@
+Match between Rahul and Computer is won by Computer by 2-1.
+Match between Rahul and Computer is won by Rahul by 3-2.
+Match between Rahul and Computer is won by Computer by 4-2.
+Match between Chotu and Computer is won by Computer by 3-2.
+Match between Chotu and Computer is won by Chotu by 4-1.
+Match between Rahul and Computer is won by Computer by 3-2.
+Match between Garvit Saini and Computer is won by Computer by 4-1.
+Match between Axel Frost and Computer is won by Axel Frost by 4-1.
+Match between Axel Frost and Computer is a tie by score 2-2.
+Match between Rahul and Computer is won by Computer by 3-1.
