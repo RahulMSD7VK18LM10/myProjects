@@ -1,0 +1,23 @@
+<?php
+use Drupal\Core\Database\Database;
+  function products_theme($existing,$theme,$type,$path){
+    return array(
+      'product-demo'=>array(
+      'variables'=>array(
+        'title'=>'',
+        'info'=>'',
+        'msg'=>'',
+        'th'=>[],
+        'data'=>[],
+      )
+      ),
+    'product-detail'=>array(
+      'variables'=>array(
+        'title'=>'',
+        'info2'=>'',
+        'detail'=>[],
+      )
+      ),
+  );
+  }
+?>

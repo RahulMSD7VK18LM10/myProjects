@@ -1,0 +1,309 @@
+<?php
+  use Drupal\Core\Link;
+  use Drupal\Core\Url;
+  use Drupal\taxonomy\Entity\Term;
+  use Drupal\Core\Template\Attribute;
+  use Drupal\block\Entity\Block;
+  use Drupal\user\Entity\User;
+  //main page view
+
+  function redundentCode(){
+    $current_user = \Drupal::currentUser();
+    $user=User::load($current_user->id());
+    $userid=$user->get('uid')->value;
+    $query3=\Drupal::database()->select('productcart','pct');
+        $query3->fields('pct',['cart_id','product_id','user_id','product_name','product_image','product_price','product_quantity','product_category','added_on',]);
+        $result3=$query3
+          ->condition('product_id',$_POST['pid'])
+          ->condition('user_id',$userid)
+          ->execute()
+          ->fetchAssoc();
+        if($result3==null){
+          $query5=\Drupal::database()->select('productexample','pde');
+          $query5->fields('pde',['product_id','product_name','product_category','product_image','product_quantity','product_price','created_on','created_by']);
+          $result5=$query5
+            ->condition('product_id', $_POST['pid'])
+            ->execute()
+            ->fetchAssoc();
+          $quantity=1;
+          $field  = array(
+            'product_id'=>$result5['product_id'],
+            'user_id'=>$userid,
+            'product_name'   =>  $result5['product_name'],
+            'product_category' =>  $result5['product_category'],
+            'product_image' =>  $result5['product_image'],
+            'product_price'=> $result5['product_price'],
+            'product_quantity' =>$quantity,
+            'added_on' => date('Y/m/d'),
+          );
+          $query1=\Drupal::database();
+          $query1->insert('productcart')
+            ->fields($field)
+            ->execute();
+          if($query1){
+            drupal_flush_all_caches(); //to clear cache automatically
+            \Drupal::messenger()->addMessage("Product added to cart!! View Cart to continue");
+          }
+          else{
+            drupal_flush_all_caches();
+            \Drupal::messenger()->addMessage("There was some problem");
+          }
+        }
+        else{
+          $newquantity=$result3['product_quantity']+1;
+          $field=array(
+            'product_quantity'=>$newquantity
+          );
+          $query4 = \Drupal::database()->update('productcart');
+          $query4->fields($field)
+                ->condition('product_id',$_POST['pid'])
+                ->condition('user_id',$userid)
+                ->execute();
+          if($query4){
+            drupal_flush_all_caches(); //to clear cache automatically
+            \Drupal::messenger()->addMessage("Item Added to Cart Successfully");
+          }
+          else{
+            drupal_flush_all_caches();
+            \Drupal::messenger()->addMessage("There was some problem");
+          }
+        }
+  }
+  function custom_theme_preprocess_block__views_block__example_block_1(&$var){
+    drupal_flush_all_caches();
+    $query=\Drupal::database()->select('productexample','pde');
+    $query->fields('pde',['product_id','product_name','product_category','product_image','product_quantity','product_price','created_on','created_by']);
+    $result=$query
+      ->orderBy('product_id', 'DESC')
+      ->execute()
+      ->fetchAll();
+    $rows=array();
+    foreach($result as $data){
+      $taxaonomy_id=$data->product_category;
+      $term=Term::load($taxaonomy_id);
+      $tax_name=$term->getName();
+      $rows[]=array(
+        'product_id'=>$data->product_id,
+        'product_name'=>Link::fromTextAndUrl(t($data->product_name),Url::fromUri('internal:/productinfo?id='.$data->product_id))->toString(),
+        'product_category'=>Link::fromTextAndUrl(t($tax_name),Url::fromUri('internal:/taxonomyview?tid='.$taxaonomy_id))->toString(),
+        'product_image'=>Url::fromUri('internal:/sites/default/files/product-images/'.$data->product_image)->toString(),
+        'product_price'=>$data->product_price,
+        'product_quantity'=>$data->product_quantity,
+        'created_on'=>$data->created_on,
+        'created_by'=>$data->created_by,
+      );
+    }
+    $current_user = \Drupal::currentUser();
+    $user=User::load($current_user->id());
+    $userid=$user->get('uid')->value;
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+      if($userid==0){
+        \Drupal::messenger()->addMessage("Please Login to add product to cart");
+      }
+      else{
+        redundentCode();
+      }
+    }
+    $var['data']=$rows;
+    $carturl=URL::fromUri('internal:/productcart')->toString();
+    $var['carturl']=$carturl;
+    $homeurl=Url::fromUri("internal:/customexample")->toString();
+    $var['homeurl']=$homeurl;
+  }
+  //taxonomywise view
+  function custom_theme_preprocess_views_view__taxonomyview__page(&$variable){
+    drupal_flush_all_caches();
+    $query=\Drupal::database()->select('productexample','pde');
+    $query->fields('pde',['product_id','product_name','product_category','product_image','product_quantity','product_price','created_on','created_by']);
+    $result=$query
+      ->condition('product_category', $_GET['tid'])
+      ->execute()
+      ->fetchAll();
+    $rows=array();
+    drupal_flush_all_caches();
+    foreach($result as $data){
+        $taxaonomy_id=$data->product_category;
+        $term=Term::load($taxaonomy_id);
+        $tax_name=$term->getName();
+        $rows[]=array(
+            'product_id'=>$data->product_id,
+            'product_name'=>Link::fromTextAndUrl(t($data->product_name),Url::fromUri('internal:/productinfo?id='.$data->product_id))->toString(),
+            'product_image'=>Url::fromUri('internal:/sites/default/files/product-images/'.$data->product_image)->toString(),
+            'product_price'=>$data->product_price,
+            'product_quantity'=>$data->product_quantity,
+            'created_on'=>$data->created_on,
+            'created_by'=>$data->created_by,
+        );
+    }
+    $current_user = \Drupal::currentUser();
+    $user=User::load($current_user->id());
+    $userid=$user->get('uid')->value;// loading current user id
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+      if($userid==0){
+        \Drupal::messenger()->addMessage("Please Login to add product to cart");
+      }
+      else{ // can be written in a function to be used repeatedly
+        redundentCode();
+      }
+    }
+    drupal_flush_all_caches();
+    $variable['pcat']=$tax_name;
+    $variable['data']=$rows;
+    $carturl=URL::fromUri('internal:/productcart')->toString();
+    $variable['carturl']=$carturl;
+    $homeurl=Url::fromUri("internal:/customexample")->toString();
+    $variable['homeurl']=$homeurl;
+  }
+  //individual product detail
+  function custom_theme_preprocess_views_view__productinfo__page(&$varr){
+    drupal_flush_all_caches();
+    $query=\Drupal::database()->select('productexample','pde');
+    $query->fields('pde',['product_id','product_name','product_category','product_image','product_quantity','product_price','created_on','created_by']);
+    $result=$query
+      ->condition('product_id', $_GET['id'])
+      ->execute()
+      ->fetchAssoc();
+    $result['product_image']=Url::fromUri('internal:/sites/default/files/product-images/'.$result['product_image'])->toString();
+    $taxaonomy_id=$result['product_category'];
+    $term=Term::load($taxaonomy_id);
+    $tax_name=$term->getName();
+    $result['product_category']=Link::fromTextAndUrl(t($tax_name),Url::fromUri('internal:/taxonomyview?tid='.$taxaonomy_id))->toString();
+    $varr['data']=$result;
+    $varr['addtocart'] = \Drupal::service('plugin.manager.block')
+      ->createInstance('form_block')
+      ->build();
+    $homeurl=Url::fromUri("internal:/customexample")->toString();
+    $varr['homeurl']=$homeurl;
+    $carturl=URL::fromUri('internal:/productcart')->toString();
+    $varr['carturl']=$carturl;
+  }
+  //cartcode
+  function custom_theme_preprocess_views_view__productcart__page(&$varble){
+    drupal_flush_all_caches();
+    $current_user = \Drupal::currentUser();
+    $user=User::load($current_user->id());
+    $userid=$user->get('uid')->value;
+    $totalprice=0;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if($_POST['submit']== "Update"){
+        $field=array(
+          'product_quantity'=>$_POST['quantity']
+        );
+        $query2 = \Drupal::database()->update('productcart');
+        $query2->fields($field)
+              ->condition('cart_id',$_POST['id'])
+              ->condition('user_id',$userid)
+              ->execute();
+        if($query2){
+          drupal_flush_all_caches(); //to clear cache automatically
+          \Drupal::messenger()->addMessage("Item Update Successfully");
+          $_POST['submit']=null;
+        }
+        else{
+          drupal_flush_all_caches();
+          \Drupal::messenger()->addMessage("There was some problem");
+        }
+      }
+      if($_POST['submit']=="Remove"){
+        $query3=\Drupal::database();
+        $query3->delete('productcart')
+              ->condition('cart_id',$_POST['id'])
+              ->condition('user_id',$userid)
+              ->execute();
+        if($query3){
+          drupal_flush_all_caches(); //to clear cache automatically
+          \Drupal::messenger()->addMessage("Item Removed Successfully");
+          $_POST['submit']=null;
+        }
+        else{
+          drupal_flush_all_caches();
+          \Drupal::messenger()->addMessage("There was some problem");
+        }
+      }
+    }
+    $query=\Drupal::database()->select('productcart','pct');
+    $query->fields('pct',['cart_id','product_id','user_id','product_name','product_image','product_price','product_quantity','product_category','added_on']);
+    $result=$query
+      ->condition('user_id',$userid)
+      ->orderBy('added_on',"DESC")
+      ->execute()
+      ->fetchAll();
+    if($result==null){
+      $flag=1;
+    }
+    else{
+      $rows=array();
+      foreach($result as $data){
+          $taxaonomy_id=$data->product_category;
+          $term=Term::load($taxaonomy_id);
+          $tax_name=$term->getName();
+          $rows[]=array(
+              'cart_id'=>$data->cart_id,
+              'product_id'=>$data->product_id,
+              'product_name'=>Link::fromTextAndUrl(t($data->product_name),Url::fromUri('internal:/productinfo?id='.$data->product_id))->toString(),
+              'product_category'=>$tax_name,
+              'product_price'=>$data->product_price,
+              'product_quantity'=>$data->product_quantity,
+              'added_on'=>$data->added_on,
+          );
+          $totalprice=$totalprice+($data->product_price)*($data->product_quantity);
+      }
+    }
+    drupal_flush_all_caches();
+    $varble['data']=$rows;
+    $varble['totalprice']=$totalprice;
+    $varble['userid']=$userid;
+    $varble['login']=Url::fromUri("internal:/user/login")->toString();
+    $varble['clearcart'] = \Drupal::service('plugin.manager.block')
+      ->createInstance('clearcart_block')
+      ->build();
+    $varble['placeorder'] = \Drupal::service('plugin.manager.block')
+      ->createInstance('placeorder_block')
+      ->build();
+    $varble['flag']=$flag;
+    $varble['home']=Url::fromUri("internal:/customexample")->toString();
+    $carturl=URL::fromUri('internal:/productcart')->toString();
+    $varble['carturl']=$carturl;
+  }
+  //custommenu code
+  function custom_theme_preprocess_block__views_block__custommenu_block_1(&$vble){
+    drupal_flush_all_caches();
+    $products_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('products');
+    //entityTypeManager is used to get entity type manager
+    // getStorage takes entity type id as parameter and returns a storage instance
+    // loadtree finds all the term in a vocabulary iy creates a array of indexes other options are like load or loadmultiple
+    $products = array();
+    foreach ($products_terms as $product_term) {
+        $products[$product_term->tid] = $product_term->name;
+    }
+    $urls=array();
+    foreach($products as $tid => $name){
+      $urls[$name]=Url::fromUri('internal:/taxonomyview?tid='.$tid)->toString();
+    }
+    $vble['data']=$urls;
+  }
+  function custom_theme_preprocess_block__views_block__cartbutton_block_1(&$vblle){
+    drupal_flush_all_caches();
+    $current_user = \Drupal::currentUser();
+    $user=User::load($current_user->id());
+    $userid=$user->get('uid')->value;
+    $query=\Drupal::database()->select('productcart','pct');
+    $query->fields('pct',['cart_id','product_id','user_id','product_name','product_image','product_price','product_quantity','product_category','added_on']);
+    $result=$query
+      ->condition('user_id',$userid)
+      ->execute()
+      ->fetchAll();
+    if($result){
+      foreach($result as $data){
+        $noofrows=$noofrows + $data->product_quantity;
+      }
+    }
+    else{
+      $noofrows=0;
+    }
+    $vblle['nfitems']=$noofrows;
+    $carturl=URL::fromUri('internal:/productcart')->toString();
+    $vblle['carturl']=$carturl;
+  }
+  //$current_path = \Drupal::service('path.current')->getPath(); to get current page path
+?>

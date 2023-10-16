@@ -1,0 +1,7 @@
+placeorder.orderhistory:
+  path: '/orderhistory'
+  defaults:
+    _controller: '\Drupal\placeorder\Controller\Historyoforders::orderhistory'
+    _title: 'Order History'
+  requirements:
+    _permission: 'access content'

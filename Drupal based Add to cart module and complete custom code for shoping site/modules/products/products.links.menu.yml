@@ -1,0 +1,23 @@
+products.products_form:
+  title: Add Product
+  description: Add your product here
+  route_name: products.products_form
+  weight: 1
+  menu_name: mainmenu2
+  # options:  takes to next page
+  #   attributes:
+  #     target: _blank
+
+products.example_controller_view:
+  title: View Products
+  description: View All products here
+  route_name: products.example_controller_view
+  weight: 2
+  menu_name: mainmenu2
+
+placeorder.orderhistory:
+  title: OrderHistory
+  description: History of past orders
+  route_name: placeorder.orderhistory
+  weight: 3
+  menu_name: mainmenu2

@@ -1,0 +1,57 @@
+<center><h1>Cart</h1></center><br/>
+  {% if userid ==0 %}
+    <h4>Please <a href={{login}}>Login</a> to view cart</h4>
+  {% else %}
+    {% if flag == 1 %}
+      <h4>You Cart is Empty! Please <a href={{home}}>Click Here</a> to add products</h4>
+    {% else %}
+      <div class="menu1">
+        <button class="btn btn-info"><a href={{home}}>Home</a></button>
+          <div class="menu2">
+            {{clearcart}}
+            {{placeorder}}
+          </div>
+      </div>
+      <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for res in data %}
+          <tr>
+          <form method="post">
+          <input type="hidden" value={{res.cart_id}} name="id"></input>
+            <td>{{res.product_name}}</td>
+            <td>{{res.product_category}}</td>
+            <td>{{"Rs. "}}{{res.product_price}}{{"/-"}}</td>
+            <td><input id="quant" type="number" value={{res.product_quantity}} name='quantity' min="1" step="1"></input></td>
+            <td>{{res.added_on}}</td>
+            <td>
+              <input type="submit" value="Update" name="submit"></input>
+            </td>
+            <td>
+              <input type="submit" value="Remove" name="submit"></input>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+      </table>
+      <table class="table table-bordered table-hover">
+        <tr>
+          <th>
+            Total Price:
+          </th>
+          <td>
+            {{"Rs. "}}{{totalprice}}{{"/-"}}
+          </td>
+        </tr>
+      </table>
+    {% endif %}
+  {% endif %}

@@ -1,0 +1,37 @@
+<?php
+  use Drupal\Core\Mail\MailManagerInterface;
+  use Drupal\Component\Utility\SafeMarkup;
+  use Drupal\Component\Utility\Html;
+/**
+ * Implements hook_mail()
+ */
+  function placeorder_mail($key, &$message, $params) {
+    $options = array(
+      'langcode' => $message['langcode'],
+    );
+    switch ($key) {
+      case 'general_mail':
+        // $message['from'] = \Drupal::config('system.site')->get('mail');
+        $message['from'] = "rahulchandel2812@gmail.com";
+        $message['subject'] = t('Your mail subject Here: @title', array('@title' => $params['title']), $options);
+        $message['body'][] = Html::escape($params['message']);
+        break;
+    }
+  }
+  // function placeorder_placeorder_form_form_alter(&$form, &$form_state) {
+  //   $form['#submit'][] = 'mysubmit';
+  // }
+  // function mysubmit(){
+  // }
+  function placeorder_theme($existing,$theme,$type,$path){
+    return array(
+      'orderhistory'=>array(
+      'variables'=>array(
+        'flag'=>'',
+        'home'=>'',
+        'data'=>[],
+      )
+      ),
+  );
+  }
+?>

@@ -1,0 +1,51 @@
+products.products_form:
+  path: '/product/form/productform'
+  defaults:
+    _form: '\Drupal\products\Form\ProductForm'
+    _title: 'ProductDetails'
+  requirements:
+    # _access: 'TRUE'
+    _permission: 'my permission'
+
+
+products.product_delete:
+  path: '/product/action/delete/{cid}'
+  defaults:
+    _form: '\Drupal\products\Action\Delete'
+    _title: 'DeleteProduct'
+  requirements:
+    #_access: 'TRUE'
+    _permission: 'my permission'
+
+products.product_update:
+  path: '/product/action/update'
+  defaults:
+    _form: '\Drupal\products\Action\Update'
+    _title: 'UpdateProduct'
+  requirements:
+    #_access: 'TRUE'
+    _permission: 'my permission'
+
+products.example_controller_view:
+  path: '/product/example/view'
+  defaults:
+    _controller: '\Drupal\products\Controller\ExampleController::displayAllProducts'
+    _title: 'Example'
+  requirements:
+    #_permission: 'access content'
+    _permission: 'my permission'
+
+products.product_detail_controller_show:
+  path: '/product/product/detail'
+  defaults:
+    _controller: '\Drupal\products\Controller\ProductDetailController::dispalyProduct'
+  requirements:
+    #_permission: 'access content'
+    _permission: 'my permission'
+
+products.service_controller:
+  path: '/product/service/example'
+  defaults:
+    _controller: '\Drupal\products\Controller\ServiceController::content'
+  requirements:
+    _permission: 'access content'

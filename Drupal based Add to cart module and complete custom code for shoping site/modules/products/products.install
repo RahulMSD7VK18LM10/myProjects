@@ -1,0 +1,56 @@
+<?php
+use Drupal\Core\Database\Database;
+function products_schema() {
+
+  $schema['productexample'] = array(
+    'fields' => array(
+      'product_id'=>array(
+        'type'=>'serial',
+        'not null' => TRUE,
+      ),
+      'user_id'=>array(
+        'type'=>'varchar',
+        'length'=>40,
+        'not null' => FALSE,
+      ),
+      'product_name'=>array(
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+      ),
+      'product_category'=>array(
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+      ),
+      'product_image'=>array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'product_price'=>array(
+        'type'=> 'varchar',
+        'length'=> 40,
+        'not null'=> TRUE,
+      ),
+      'product_quantity'=>array(
+        'type' => 'varchar',
+        'length' => 25,
+        'not null' => TRUE,
+      ),
+      'created_on'=>array(
+        'type'=>'varchar',
+        'mysql_type'=>'date',
+        'not null'=> TRUE,
+      ),
+      'created_by'=>array(
+        'type'=>'varchar',
+        'length'=>'40',
+      )
+    ),
+
+    'primary key' => array('product_id'),
+  );
+  return $schema;
+}
+?>

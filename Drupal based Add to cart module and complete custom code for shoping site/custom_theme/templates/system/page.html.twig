@@ -1,0 +1,44 @@
+<header aria-label="Site header" class="header text-light" id="header" role="navigation">
+     {{ page.branding }}
+     <nav class="navbar-nav navbar-light" role="navigation">{{ page.navigation }}</nav>
+     {{ page.search }}
+</header>
+{# <section class="header">{{ page.navigation }}</section> #}
+<section class="feature1" id="feature">
+{{ page.feature1}}
+</section>
+<section class="feature" id="feature">
+{{ page.feature}}
+</section>
+<section class="main" id="main">
+  <aside class="left--sidebar" id="sidebar" role="navigation">
+    {{ page.left_sidebar }}
+  </aside>
+  <div class="col main_container1">
+    <main aria-label="Site main content" class="content col" id="content" role="main">
+    <section class="content col" id="content" role="complementary">
+    {{ page.content }}
+    {# {{ page.content2 }} #}
+    </section>
+    {# <section class="featured col" id="featured" role="complementary">
+    {{ page.content3 }}
+    {{ page.content4 }}
+    </section>
+    <section class="featured col" id="featured" role="complementary">
+    {{ page.content5 }}
+    {{ page.content6 }}
+    </section> #}
+    </main>
+  </div>
+</section>
+
+<footer aria-label="Site footer" class="footer" id="footer" role="contentinfo">
+   <div class="footer--top">
+     {{ page.footer_first }}
+     {{ page.footer_second }}
+     {{ page.footer_third }}
+   </div>
+   <div class="footer--bottom">
+       {{ page.footer_bottom }}
+   </div>
+</footer>
