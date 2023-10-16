@@ -1,0 +1,25 @@
+name: MyownTheme
+type: theme
+description: 'Custom Theme for My Website.'
+package: Other
+core_version_requirement: ^8 || ^9
+libraries:
+  - custom_theme/global-styling
+base theme: bootstrap5
+regions:
+  branding: 'Branding'
+  navigation: 'Navigation'
+  search: 'Search'
+  feature1: 'Feature'
+  feature: 'Feature'
+  left_sidebar: 'Left sidebar'
+  content: 'Content'
+  # content2: 'Content'
+  # content3: 'Content'
+  # content4: 'Content'
+  # content5: 'Content'
+  # content6: 'Content'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_bottom: 'Footer Bottom'

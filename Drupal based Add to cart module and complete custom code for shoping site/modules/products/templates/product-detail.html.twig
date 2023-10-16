@@ -1,0 +1,39 @@
+{{info2}}
+<table>
+  <tr>
+    <th>Product ID</th>
+    <td>{{detail.product_id}}</td>
+  </tr>
+  <tr>
+    <th>Product Name</th>
+    <td>{{detail.product_name}}</td>
+  </tr>
+  <tr>
+    <th>Product Category</th>
+    <td>{{detail.product_category}}</td>
+  </tr>
+  <tr>
+    <th>Product Image</th>
+    {# <td>{{detail.product_image}}</td> #}
+    <td><img src="/Shopiee/sites/default/files/product-images/{{detail.product_image}}" alt="{{detail.product_image}}" width="100" height="100"></td>
+  </tr>
+  <tr>
+    <th>Product Price</th>
+    <td>{{'Rs. '}}{{detail.product_price}}{{'/-'}}</td>
+  </tr>
+  <tr>
+    <th>Product Quantity</th>
+    <td>{{detail.product_quantity}}</td>
+  </tr>
+  <tr>
+    <th>Created By</th>
+    <td>{{detail.created_by}}</td>
+  </tr>
+  <tr>
+    <th>Created On</th>
+    <td>{{detail.created_on}}</td>
+  </tr>
+</table>
+<button class="btn btn-success"><a href='../action/update?num={{detail.product_id}}'>Edit Product</a></button>
+<button class="btn btn-success"><a href='../action/delete/{{detail.product_id}}'>Delete Product</a></button>
+<button class="btn btn-success"><a href='../example/view'>Back</a></button>

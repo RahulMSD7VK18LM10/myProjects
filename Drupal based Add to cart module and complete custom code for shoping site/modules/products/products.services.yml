@@ -1,0 +1,14 @@
+services:
+  products.sayhello:
+    class: Drupal\products\Services\ExampleServices
+  products.productservice:
+    class: Drupal\products\Services\ProductService
+    arguments: ['@database']
+  products.insertproductservice:
+    class: Drupal\products\Services\InsertProductService
+    arguments: ['@database']
+  products.updateproductservice:
+    class: Drupal\products\Services\UpdateProductService
+    arguments: ['@database']
+  csvfileexport.csv:
+    class: Drupal\csvfileexport\Service\csvfile

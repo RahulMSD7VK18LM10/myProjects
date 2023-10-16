@@ -1,0 +1,50 @@
+{# <center><h1>{{pcat}} Products</h1></center><br/>
+{% set i = 1 %}
+{% for res in data %}
+  {% if i % 3 == 1 %}
+  <div class="row">
+  {% endif %}
+    <div class="col-sm"><h4>{{res.product_name}}</h4>
+        <img src={{res.product_image}} height="200px" width="200px"></img><br/>
+        {{"Price: "}}{{"Rs. "}}{{res.product_price}}{{"/-"}}<br/>
+        {{"Item Remaining: "}}{{res.product_quantity}}<br/>
+        {{"Created By: "}}{{res.created_by}}<br/>
+        {{"Created On: "}}{{res.created_on}}<br/>
+        {{ addtocart }}
+    </div>
+  {% if i % 3 == 0 %}
+    </div>
+  {% endif %}
+  {% set i = i + 1 %}
+{% endfor %} #}
+
+<center><h1>{{pcat}} Products</h1></center><br/>
+<div class="menu1">
+  <button class="btn btn-secondary"><a href={{homeurl}}>Home</a></button>
+  <button class="btn btn-secondary"><a class="use-ajax" data-dialog-options="{&quot;width&quot;:800}" data-dialog-type="modal"
+    href={{carturl}}>View Cart</a></button>
+</div>
+{% set i = 1 %}
+<table>
+
+{% for res in data %}
+  {% if i % 3 == 1 %}
+  <tr class="row">
+  {% endif %}
+    <th class="col-sm"><h4>{{res.product_name}}</h4>
+        <img src={{res.product_image}} height="200px" width="200px"></img><br/>
+        {{"Price: "}}{{"Rs. "}}{{res.product_price}}{{"/-"}}<br/>
+        {{"Item Remaining: "}}{{res.product_quantity}}<br/>
+        {{"Created By: "}}{{res.created_by}}<br/>
+        {{"Created On: "}}{{res.created_on}}<br/>
+        <form method="post">
+          <input type="hidden" value={{res.product_id}} name="tpid"></input>
+          <input type="submit" class ="btn btn-info" value="Add to Cart"></input>
+        </form>
+    </th>
+  {% if i % 3 == 0 %}
+    </tr>
+  {% endif %}
+  {% set i = i + 1 %}
+{% endfor %}
+</table>

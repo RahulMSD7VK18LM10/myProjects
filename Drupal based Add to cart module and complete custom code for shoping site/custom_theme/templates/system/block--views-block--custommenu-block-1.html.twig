@@ -1,0 +1,14 @@
+<center><h3>Category</h1></center>
+<nav class="navbar navbar-dark">
+    <div class="container-fluid">
+    <ul class="nav flex-column">
+      {% for name,tid in data %}
+      <div  class="container1">
+        <li class="nav-item">
+          <a class="nav-link" href={{tid}}>{{name}}</a>
+        </li>
+      </div>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

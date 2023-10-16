@@ -1,0 +1,39 @@
+{# <center><h1>Product detail</h1></center><br/>
+<div class="row">
+  <div class="col-md-8">
+    <h3>{{data.product_name}}</h3>
+    <img src={{data.product_image}} height="300px" width="400px"></img><br/>
+  </div>
+  <div class="col-md-4">
+    {{"Category: "}}{{data.product_category}}<br/>
+    {{"Price: "}}{{"Rs. "}}{{data.product_price}}{{"/-"}}<br/>
+    {{"Item Remaining: "}}{{data.product_quantity}}<br/>
+    {{"Created By: "}}{{data.created_by}}<br/>
+    {{"Created On: "}}{{data.created_on}}<br/>
+    <br/>
+    {{ addtocart }}
+  </div>
+</div> #}
+<center><h1>Product detail</h1></center><br/>
+<div class="menu1">
+  <button class="btn btn-secondary"><a href={{homeurl}}>Home</a></button>
+  <button class="btn btn-secondary"><a class="use-ajax" data-dialog-options="{&quot;width&quot;:800}" data-dialog-type="modal"
+    href={{carturl}}>View Cart</a></button>
+</div>
+<table>
+<tr class="row">
+  <th class="col-md-8">
+    <h3>{{data.product_name}}</h3>
+    <img src={{data.product_image}} height="300px" width="400px"></img><br/>
+  </th>
+  <th class="col-md-4">
+    {{"Category: "}}{{data.product_category}}<br/>
+    {{"Price: "}}{{"Rs. "}}{{data.product_price}}{{"/-"}}<br/>
+    {{"Item Remaining: "}}{{data.product_quantity}}<br/>
+    {{"Created By: "}}{{data.created_by}}<br/>
+    {{"Created On: "}}{{data.created_on}}<br/>
+    <br/>
+    {{ addtocart }}
+  </th>
+</tr>
+</table>

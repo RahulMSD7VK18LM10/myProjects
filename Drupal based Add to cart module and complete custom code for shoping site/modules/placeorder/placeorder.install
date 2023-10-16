@@ -1,0 +1,41 @@
+<?php
+
+function placeorder_schema() {
+
+  $schema['productorder'] = array(
+    'fields' => array(
+      'order_id'=>array(
+        'type'=>'serial',
+        'not null' => TRUE,
+      ),
+      'user_id'=>array(
+        'type'=>'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+      ),
+      'product_name'=>array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'total_price'=>array(
+        'type'=> 'varchar',
+        'length'=> 40,
+        'not null'=> TRUE,
+      ),
+      'total_quantity'=>array(
+        'type' => 'varchar',
+        'length' => 25,
+        'not null' => TRUE,
+      ),
+      'order_date'=>array(
+        'type'=>'varchar',
+        'mysql_type'=>'date',
+        'not null'=> TRUE,
+      ),
+    ),
+    'primary key' => array('order_id'),
+  );
+  return $schema;
+}
+?>
