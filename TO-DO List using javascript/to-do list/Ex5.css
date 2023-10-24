@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Fira sans", sans-serif;
+    background-size: auto;
+    background-image: url(https://media.istockphoto.com/id/1203522864/vector/abstract-plexus-background-with-connecting-dots-and-lines-global-network-connection-digital.jpg?s=1024x1024&w=is&k=20&c=Ow4yAgScHwZ0-AIfB90wCY51Lboq0vzgXrp6As0O-zo=);
+    /* background-image: url(https://img.freepik.com/free-vector/technology-background-with-abstract-hud_23-2148249746.jpg?w=740&t=st=1677000266~exp=1677000866~hmac=753c1f36eee737a164d3545b1589e613b80ee58e7df407837da620b5d393017d); */
+}
+
+.header {
+    padding: 2rem 1rem;
+    max-width: 400px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.bar {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #070707;
+    margin-bottom: 1rem;
+    border: 5px double #070707;
+}
+
+.card {
+    border: 5px double #070707;
+    padding: 1%;
+    height: 500px;
+    width: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.btn {
+    transition: transform 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+}
+
+.h5 {
+    color: #070707;
+}
+
+#inputText {
+    color: #070707;
+    transition: transform 0.3s;
+}
+
+#inputText:hover {
+    transform: translateY(-5px);
+}
+
+.hings {
+    color: #070707;
+}
+
+.had {
+    color: #070707;
+    text-align: center;
+}
+
+.sno {
+    color: #070707;
+    font-size: 20px;
+}

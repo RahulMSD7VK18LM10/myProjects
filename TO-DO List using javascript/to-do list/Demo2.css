@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Fira sans", sans-serif;
+    background-image: url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+
+.header {
+    padding: 2rem 1rem;
+    max-width: 400px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.bar {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #150202;
+    margin-bottom: 1rem;
+    border: 5px double white;
+}
+
+.card {
+    border: 5px double white;
+    padding: 1%;
+    height: 500px;
+    width: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.button {
+    color: rgb(244, 248, 242);
+}
+
+.h5 {
+    color: rgb(13, 14, 13);
+}
+
+#inputText {
+    color: rgb(12, 12, 12);
+}
+
+.hings {
+    color: rgb(13, 14, 13);
+    ;
+}
+
+.had {
+    color: rgb(13, 14, 13);
+    ;
+}
+
+.sno {
+    color: rgb(13, 14, 13);
+    ;
+}
