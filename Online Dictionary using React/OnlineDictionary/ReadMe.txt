@@ -1,0 +1,1 @@
+This is a simple dictionary using react with limited words available from a free api.
