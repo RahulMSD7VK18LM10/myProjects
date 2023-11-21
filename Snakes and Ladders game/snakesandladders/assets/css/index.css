@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background: #cad7e9;
+    text-align: center;
+}
+
+.dice-section {
+    margin: 5%;
+    padding: 5%;
+    display: flex;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+#specialEvents {
+    margin: 0;
+}
+
+.snake87-69 {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    height: 136px;
+    margin-top: 63px;
+    width: 127px;
+    margin-left: 544px;
+}
+
+.snake99-14 {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    height: 432px;
+    transform: rotate(5deg);
+    margin-top: 38px;
+    margin-left: 129px;
+}
+
+.snake52-28 {
+    position: absolute;
+    z-index: 1;
+    transform: rotate(-30deg);
+    opacity: 1;
+    height: 149px;
+    width: 168px;
+    margin-top: 247px;
+    margin-left: 540px;
+}
+
+.snake64-39 {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    height: 220px;
+    width: 311px;
+    transform: rotate(130deg);
+    margin-top: 156px;
+    margin-left: 138px
+}
+
+.snake34-8 {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    height: 194px;
+    width: 109px;
+    transform: rotate(-35deg);
+    margin-top: 337px;
+    margin-left: 527px;
+}
+
+.ladder40-79 {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    height: 259px;
+    transform: rotate(17deg);
+    width: 193px;
+    margin-top: 99px;
+    margin-left: 57px;
+}
+
+.ladder47-97 {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    height: 382px;
+    transform: rotate(-37deg);
+    width: 207px;
+    margin-top: -41px;
+    margin-left: 320px;
+}
+
+.ladder5-37 {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    height: 193px;
+    transform: rotate(-26deg);
+    width: 189px;
+    margin-top: 326px;
+    margin-left: 263px;
+}
+
+.ladder12-50 {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    height: 200px;
+    width: 198px;
+    transform: rotate(22deg);
+    margin-top: 270px;
+    margin-left: 614px;
+}
+
+.ladder70-93 {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    height: 229px;
+    width: 190px;
+    transform: rotate(-39deg);
+    margin-top: -13px;
+    margin-left: 575px;
+}
+
+.playarea1 {
+    position: relative;
+    display: inline-block;
+    margin-left: -1000px;
+}
+
+.main-board {
+    margin-left: 90px;
+    margin-right: 200px;
+    position: absolute;
+    display: inline-block;
+}
+
+.playarea2 {
+    position: absolute;
+    display: inline-block;
+    margin-left: 850px;
+}
+
+#dice-id1 {
+    height: 50px;
+    width: 50px;
+}
+
+#dice-id2 {
+    height: 50px;
+    width: 50px;
+}
+
+.block {
+    width: 70px;
+    padding: 0%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    border: 1.5px solid black;
+    background: #77dd77;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    padding: 0%;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    border: 1px solid black;
+    /* background: #77dd77; */
+}
+
+.active {
+    background: #FAC898;
+}
+
+.shake {
+    animation: shake 1s infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(50deg);
+    }
+    50% {
+        transform: rotate(-50deg);
+    }
+    100% {
+        transform: rotate(50deg);
+    }
+}
