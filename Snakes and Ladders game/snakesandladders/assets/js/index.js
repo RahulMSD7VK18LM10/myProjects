@@ -26,19 +26,21 @@ $(document).ready(function() {
         $('#player1').attr("disabled", true);
         $('#player2').attr("disabled", false);
         setTimeout(() => {
-            $(`#block-${curPositionPlay1}`).removeClass("bg-primary");
+            if (curPositionPlay1 != 1) {
+                $(`#block-${curPositionPlay1}`).css("background", "#77dd77");
+            }
             $(`#block-${curPositionPlay1}`).css("font-weight", 'normal');
             curPositionPlay1 = curPositionPlay1 + play1Score;
             if (curPositionPlay1 < 100) {
                 curPositionPlay1 = ladderandSnake(curPositionPlay1);
-                $(`#block-${curPositionPlay1}`).addClass("bg-primary");
+                samePosition(curPositionPlay1, curPositionPlay2);
                 $(`#block-${curPositionPlay1}`).css('font-weight', 'bold');
                 setTimeout(() => {
                     $("#dice-id1").css("visibility", "hidden");
                     $('#dice-id2').css('visibility', 'visible');
                 }, 600);
             } else if (curPositionPlay1 == 100) {
-                $(`#block-${curPositionPlay1}`).addClass("bg-primary");
+                $(`#block-${curPositionPlay1}`).css("background", "#0275d8");
                 $('#player1').attr("disabled", true);
                 $('#player2').attr("disabled", true);
                 $("#specialEvents").addClass("text-white bg-dark");
@@ -46,7 +48,8 @@ $(document).ready(function() {
                 $('#specialEvents').css('visibility', 'visible');
             } else {
                 curPositionPlay1 = curPositionPlay1 - play1Score;
-                $(`#block-${curPositionPlay1}`).addClass("bg-primary");
+                samePosition(curPositionPlay1, curPositionPlay2);
+                $(`#block-${curPositionPlay1}`).css('font-weight', 'bold');
                 scoreRemaining = 100 - curPositionPlay1;
                 $('#specialEvents').addClass("text-warning");
                 $('#specialEvents').text(`You need to get ${scoreRemaining} to win`);
@@ -67,19 +70,21 @@ $(document).ready(function() {
         $('#player1').attr("disabled", false);
         $('#player2').attr("disabled", true);
         setTimeout(() => {
-            $(`#block-${curPositionPlay2}`).removeClass("bg-danger");
+            if (curPositionPlay2 != 1) {
+                $(`#block-${curPositionPlay2}`).css("background", "#77dd77");
+            }
             $(`#block-${curPositionPlay2}`).css("font-weight", 'normal');
             curPositionPlay2 = curPositionPlay2 + play2Score;
             if (curPositionPlay2 < 100) {
                 curPositionPlay2 = ladderandSnake(curPositionPlay2);
-                $(`#block-${curPositionPlay2}`).addClass("bg-danger");
+                samePosition(curPositionPlay1, curPositionPlay2);
                 $(`#block-${curPositionPlay2}`).css('font-weight', 'bold');
                 setTimeout(() => {
                     $('#dice-id1').css('visibility', 'visible');
                     $('#dice-id2').css('visibility', 'hidden');
                 }, 600);
             } else if (curPositionPlay2 == 100) {
-                $(`#block-${curPositionPlay2}`).addClass("bg-danger");
+                $(`#block-${curPositionPlay2}`).css("background", "#d9534f");
                 $('#player1').attr("disabled", true);
                 $('#player2').attr("disabled", true);
                 $("#specialEvents").addClass("text-white bg-dark");
@@ -87,7 +92,8 @@ $(document).ready(function() {
                 $('#specialEvents').css('visibility', 'visible');
             } else {
                 curPositionPlay2 = curPositionPlay2 - play2Score;
-                $(`#block-${curPositionPlay2}`).addClass("bg-danger");
+                samePosition(curPositionPlay1, curPositionPlay2);
+                $(`#block-${curPositionPlay2}`).css('font-weight', 'bold');
                 scoreRemaining = 100 - curPositionPlay2;
                 $('#specialEvents').addClass("text-warning");
                 $('#specialEvents').text(`You need to get ${scoreRemaining} to win`);
@@ -126,14 +132,30 @@ $(document).ready(function() {
             $("#dice-id1").addClass("shake");
             setTimeout(() => {
                 $("#dice-id1").removeClass("shake");
-                $("#dice-id1").attr("src", `assets/images/dice${diceRoll}.png`);
+                $("#dice-id1").attr("src", `../assets/images/dice${diceRoll}.png`);
             }, 1000);
         } else {
             $("#dice-id2").addClass("shake");
             setTimeout(() => {
                 $("#dice-id2").removeClass("shake");
-                $("#dice-id2").attr("src", `assets/images/dice${diceRoll}.png`);
+                $("#dice-id2").attr("src", `../assets/images/dice${diceRoll}.png`);
             }, 1000);
         }
     }
+
+    function samePosition(curPos1, curPos2) {
+        if (curPos1 === curPos2) {
+            $(`#block-${curPos1}`).css("background", "linear-gradient(to right,  #0275d8 0%, #0275d8 50%, #d9534f 50%, #d9534f 100%)");
+        } else {
+            if (curPos1 != 1) {
+                $(`#block-${curPos1}`).css("background", "#0275d8");
+            }
+            if (curPos2 != 1) {
+                $(`#block-${curPos2}`).css("background", "#d9534f");
+            }
+        }
+    }
+    $("#newGame").click(function() {
+        location.reload();
+    });
 })

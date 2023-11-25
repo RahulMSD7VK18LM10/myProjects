@@ -9,6 +9,9 @@ body {
     line-height: 1.6;
     background: #cad7e9;
     text-align: center;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .dice-section {
@@ -181,11 +184,22 @@ h1 {
     line-height: 75px;
     font-size: 30px;
     border: 1px solid black;
-    /* background: #77dd77; */
 }
 
 .active {
     background: #FAC898;
+}
+
+.btn-success {
+    margin-top: 492px;
+}
+
+#specialEvents {
+    font-size: 30px;
+}
+
+h1 {
+    font-size: 35px;
 }
 
 .shake {
