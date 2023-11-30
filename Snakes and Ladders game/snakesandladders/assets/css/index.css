@@ -23,6 +23,7 @@ body {
 h1 {
     text-align: center;
     margin: 0;
+    font-size: 35px;
 }
 
 #specialEvents {
@@ -33,20 +34,20 @@ h1 {
     position: absolute;
     z-index: 1;
     opacity: 1;
-    height: 136px;
-    margin-top: 63px;
+    height: 133px;
+    margin-top: 58px;
     width: 127px;
-    margin-left: 544px;
+    margin-left: 545px;
 }
 
 .snake99-14 {
     position: absolute;
     z-index: 1;
     opacity: 1;
-    height: 432px;
+    height: 423px;
     transform: rotate(5deg);
     margin-top: 38px;
-    margin-left: 129px;
+    margin-left: 136px;
 }
 
 .snake52-28 {
@@ -54,54 +55,54 @@ h1 {
     z-index: 1;
     transform: rotate(-30deg);
     opacity: 1;
-    height: 149px;
+    height: 140px;
     width: 168px;
     margin-top: 247px;
-    margin-left: 540px;
+    margin-left: 537px;
 }
 
 .snake64-39 {
     position: absolute;
     z-index: 1;
     opacity: 1;
-    height: 220px;
+    height: 219px;
     width: 311px;
     transform: rotate(130deg);
-    margin-top: 156px;
-    margin-left: 138px
+    margin-top: 151px;
+    margin-left: 140px;
 }
 
 .snake34-8 {
     position: absolute;
     z-index: 1;
     opacity: 1;
-    height: 194px;
+    height: 192px;
     width: 109px;
     transform: rotate(-35deg);
-    margin-top: 337px;
-    margin-left: 527px;
+    margin-top: 320px;
+    margin-left: 534px;
 }
 
 .ladder40-79 {
     position: absolute;
     z-index: 1;
     opacity: 1;
-    height: 259px;
+    height: 251px;
     transform: rotate(17deg);
     width: 193px;
-    margin-top: 99px;
-    margin-left: 57px;
+    margin-top: 100px;
+    margin-left: 55px;
 }
 
 .ladder47-97 {
     position: absolute;
     z-index: 1;
     opacity: 1;
-    height: 382px;
-    transform: rotate(-37deg);
+    height: 375px;
+    transform: rotate(-39deg);
     width: 207px;
-    margin-top: -41px;
-    margin-left: 320px;
+    margin-top: -46px;
+    margin-left: 313px;
 }
 
 .ladder5-37 {
@@ -111,19 +112,19 @@ h1 {
     height: 193px;
     transform: rotate(-26deg);
     width: 189px;
-    margin-top: 326px;
-    margin-left: 263px;
+    margin-top: 312px;
+    margin-left: 262px;
 }
 
 .ladder12-50 {
     position: absolute;
     z-index: 1;
     opacity: 1;
-    height: 200px;
-    width: 198px;
-    transform: rotate(22deg);
-    margin-top: 270px;
-    margin-left: 614px;
+    height: 194px;
+    width: 200px;
+    transform: rotate(23deg);
+    margin-top: 260px;
+    margin-left: 610px;
 }
 
 .ladder70-93 {
@@ -132,9 +133,9 @@ h1 {
     opacity: 1;
     height: 229px;
     width: 190px;
-    transform: rotate(-39deg);
-    margin-top: -13px;
-    margin-left: 575px;
+    transform: rotate(-41deg);
+    margin-top: -18px;
+    margin-left: 572px;
 }
 
 .playarea1 {
@@ -170,7 +171,7 @@ h1 {
     width: 70px;
     padding: 0%;
     text-align: center;
-    line-height: 50px;
+    line-height: 48px;
     font-size: 20px;
     border: 1.5px solid black;
     background: #77dd77;
@@ -191,15 +192,29 @@ h1 {
 }
 
 .btn-success {
-    margin-top: 492px;
+    margin-top: 481px;
 }
 
 #specialEvents {
     font-size: 30px;
 }
 
-h1 {
-    font-size: 35px;
+.winAnimation {
+    font-family: monospace;
+    font-size: 3em;
+    animation: color-change 1s infinite;
+}
+
+@keyframes color-change {
+    0% {
+        color: red;
+    }
+    50% {
+        color: blue;
+    }
+    100% {
+        color: red;
+    }
 }
 
 .shake {

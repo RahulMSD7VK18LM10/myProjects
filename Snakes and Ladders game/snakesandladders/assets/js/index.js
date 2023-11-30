@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var curPositionPlay1 = 1;
     var curPositionPlay2 = 1;
+    var audio;
     const snake = {
         99: 14,
         52: 28,
@@ -43,9 +44,11 @@ $(document).ready(function() {
                 $(`#block-${curPositionPlay1}`).css("background", "#0275d8");
                 $('#player1').attr("disabled", true);
                 $('#player2').attr("disabled", true);
-                $("#specialEvents").addClass("text-white bg-dark");
+                $("#specialEvents").addClass("bg-dark winAnimation");
                 $('#specialEvents').text('Player 1 wins the game!!');
                 $('#specialEvents').css('visibility', 'visible');
+                audio = $("#audioWin")[0];
+                audio.play();
             } else {
                 curPositionPlay1 = curPositionPlay1 - play1Score;
                 samePosition(curPositionPlay1, curPositionPlay2);
@@ -87,9 +90,11 @@ $(document).ready(function() {
                 $(`#block-${curPositionPlay2}`).css("background", "#d9534f");
                 $('#player1').attr("disabled", true);
                 $('#player2').attr("disabled", true);
-                $("#specialEvents").addClass("text-white bg-dark");
+                $("#specialEvents").addClass("bg-dark winAnimation");
                 $('#specialEvents').text('Player 2 wins the game!!');
                 $('#specialEvents').css('visibility', 'visible');
+                audio = $("#audioWin")[0];
+                audio.play();
             } else {
                 curPositionPlay2 = curPositionPlay2 - play2Score;
                 samePosition(curPositionPlay1, curPositionPlay2);
@@ -113,6 +118,11 @@ $(document).ready(function() {
                 $("#specialEvents").addClass("text-success");
                 $('#specialEvents').text(`WOW you climbed a ladder to ${value}`);
                 $('#specialEvents').css('visibility', 'visible');
+                audio = $("#audioLadder")[0];
+                audio.play();
+                setTimeout(() => {
+                    audio.pause();
+                }, 1000);
                 currentPosition = value;
             }
         }
@@ -121,6 +131,11 @@ $(document).ready(function() {
                 $("#specialEvents").addClass("text-Danger");
                 $('#specialEvents').text(`OOPS a snake bite you to ${value}`);
                 $('#specialEvents').css('visibility', 'visible');
+                audio = $("#audioSnake")[0];
+                audio.play();
+                setTimeout(() => {
+                    audio.pause();
+                }, 1000);
                 currentPosition = value;
             }
         }
@@ -132,13 +147,13 @@ $(document).ready(function() {
             $("#dice-id1").addClass("shake");
             setTimeout(() => {
                 $("#dice-id1").removeClass("shake");
-                $("#dice-id1").attr("src", `../images/dice${diceRoll}.png`);
+                $("#dice-id1").attr("src", `/assets/images/dice${diceRoll}.png`);
             }, 1000);
         } else {
             $("#dice-id2").addClass("shake");
             setTimeout(() => {
                 $("#dice-id2").removeClass("shake");
-                $("#dice-id2").attr("src", `../images/dice${diceRoll}.png`);
+                $("#dice-id2").attr("src", `/assets/images/dice${diceRoll}.png`);
             }, 1000);
         }
     }
@@ -157,5 +172,6 @@ $(document).ready(function() {
     }
     $("#newGame").click(function() {
         location.reload();
+        audio.pause();
     });
 })
