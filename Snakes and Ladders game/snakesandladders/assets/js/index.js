@@ -147,15 +147,15 @@ $(document).ready(function() {
             $("#dice-id1").addClass("shake");
             setTimeout(() => {
                 $("#dice-id1").removeClass("shake");
-                //$("#dice-id1").attr("src", `./assets/images/dice${diceRoll}.png`);
-                $("#dice-id1").attr("src", `myProjects/Snakes%20and%20Ladders%20game/snakesandladders/assets/images/dice${diceRoll}.png`);
+                $("#dice-id1").attr("src", `./assets/images/dice${diceRoll}.png`);
+                //$("#dice-id1").attr("src", `myProjects/Snakes%20and%20Ladders%20game/snakesandladders/assets/images/dice${diceRoll}.png`);
             }, 1000);
         } else {
             $("#dice-id2").addClass("shake");
             setTimeout(() => {
                 $("#dice-id2").removeClass("shake");
-                //$("#dice-id2").attr("src", `./assets/images/dice${diceRoll}.png`);
-                $("#dice-id2").attr("src", `myProjects/Snakes%20and%20Ladders%20game/snakesandladders/assets/images/dice${diceRoll}.png`);
+                $("#dice-id2").attr("src", `./assets/images/dice${diceRoll}.png`);
+                //$("#dice-id2").attr("src", `myProjects/Snakes%20and%20Ladders%20game/snakesandladders/assets/images/dice${diceRoll}.png`);
             }, 1000);
         }
     }
