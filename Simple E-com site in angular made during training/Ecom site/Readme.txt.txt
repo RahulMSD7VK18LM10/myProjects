@@ -1,0 +1,1 @@
+1. Install bootstrap 4.6 using npm

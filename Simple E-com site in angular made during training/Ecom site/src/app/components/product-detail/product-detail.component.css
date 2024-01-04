@@ -1,0 +1,9 @@
+.wrapper{
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+.img-fluid{
+    height: 470px;
+}
